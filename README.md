@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+$ git clone ...
+$ bundle install
+$ rails s
+```
 
-Things you may want to cover:
+* Visit localhost:3000/works to see html erb working as expected.
 
-* Ruby version
+* Visit localhost:3000/fails to see haml failing to escape inline JS.
 
-* System dependencies
+* ActionView's **content_for** sanitizes its input and marks it as html_safe.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Check rails server logs to see that when **content_for** is used to set values inside haml, it fails to sanitize when it contains broken tags.

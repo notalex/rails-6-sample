@@ -1,0 +1,5 @@
+<h1>Works</h1>
+<p>ERB: content_for sanitizes input and marks it as html_safe.</p>
+<% content_for(:page_title) { "</title><script>alert('Not Pawned')</script>;" } %>
+<% puts content_for(:page_title) %>
+<p><%= content_for(:page_title) %> </p>

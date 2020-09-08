@@ -1,0 +1,5 @@
+%h1 Fails
+%p HAML: content_for marks input as html_safe but does not sanitize it.
+- content_for(:page_title) { "</title><script>alert('Pawned')</script>;" }
+- puts content_for(:page_title)
+%p= content_for(:page_title)
