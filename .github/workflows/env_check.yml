@@ -1,0 +1,13 @@
+name: Check ENV vars
+
+on: [pull_request]
+
+jobs:
+  check_env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Check for .env file consistency
+        run: ./verify_env.sh
+        shell: bash
