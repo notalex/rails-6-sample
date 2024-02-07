@@ -1,0 +1,17 @@
+name: Check ENV vars
+
+on:
+  pull_request:
+    paths:
+      - '*.env.staging'
+
+jobs:
+  check_env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for .env file consistency
+        run: |
+          lines_changed_for_staging=$(git diff master HEAD *.env.staging | grep '^[+-][^+-]' | wc -l)
+          lines_changed_for_production=$(git diff master HEAD *.env.production  | grep '^[+-][^+-]' | wc -l)
+          [ $lines_changed_for_staging == $lines_changed_for_production ]
+        shell: bash
