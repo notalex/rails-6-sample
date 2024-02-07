@@ -1,6 +1,9 @@
 name: Check ENV vars
 
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - '**.env.staging'
 
 jobs:
   compare:
