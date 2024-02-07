@@ -1,0 +1,19 @@
+name: Check ENV vars
+
+on:
+  pull_request:
+    paths:
+      - '**.env.staging'
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          show-progress: false
+      - name: Check for .env file consistency
+        run: ./verify_env.sh
+        shell: bash
