@@ -15,5 +15,5 @@ jobs:
           fetch-depth: 0
           show-progress: false
       - name: Check for .env file consistency
-        run: ./verify_env.sh
+        run: ./bin/verify_env.sh
         shell: bash
